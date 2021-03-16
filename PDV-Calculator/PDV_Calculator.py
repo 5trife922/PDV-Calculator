@@ -3,7 +3,6 @@ LBase = [11.8,11.8,15.3,0,12.3,7.8,0.0]
 RBase = [169.5,169.5,165,0,156.5,152,0]
 GapBase = [46.5,46.5,42,24,33.5,29,0]
 Delay = [0.0866,0.1026,0.113,0.1,0.1,0.1,0.1026]
-
 SelBaseGap = []
 SelLengthGap = []
 GapOTV = []
@@ -21,7 +20,6 @@ LengthL = float(input("Длина левого сегмента >_ "))
 LOTV = LBase[SelBaseL] + LengthL * Delay[SelBaseL]
 PDV = LOTV
 
-
 baseprint();
 SelBaseR = int(input("Выбери базу правого сегента >_ ")) - 1
 LengthR= float(input("Длина правого сегмента >_ "))
@@ -37,3 +35,8 @@ if(CoutGap != 0):
         PDV += GapOTV[i]
 
 print (round(PDV, 3))
+
+if PDV < 575:
+    print("Сеть проходит по критерию времени двойного оборота сигнала (PDV < 575)")
+else:
+    print("Сеть не проходит по критерию времени двойного оборота сигнала (PDV > 575)")
